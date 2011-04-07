@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}Single Message{% endblock %}
+{% block body %}
+  <div class=message>
+    <p class=kind>{% if feedback.is_happy %}A happy{%
+      else %}An unhappy{% endif %} user said:
+    <h2>{{ feedback.text }}</h2>
+    <p class=meta>
+      written on {{ feedback.pub_date.strftime('%Y-%m-%d at %H:%M') }}
+      {% if feedback.version %}about Django-{{ feedback.version }}{% endif %}
+  </div>
+{% endblock %}
